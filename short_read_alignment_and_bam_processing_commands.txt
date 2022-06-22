@@ -149,3 +149,47 @@ WGS_mapping_bwa_mem.py -s SM16N20 -l DSW44964 -d 170724 -f SM16N20/SM16N20_DSW44
 
 WGS_mapping_bwa_mem.py -s SM16N37 -l DSW44975 -d 170724 -f SM16N37/SM16N37_DSW44975_H33LTCCXY_L1_1.clean.fq.gz -f SM16N37/SM16N37_DSW44975_H33LTCCXY_L1_2.clean.fq.gz -r SB211PAT  SB211_PAT.fasta --threads 19 --javaXmx 24g --runName default --cleanUpBams --outDir /scratch/smartin/mapping_$t/ --tmpDir /scratch/smartin/mapping_$t/
 
+
+######################################
+### Dplex4 as reference
+######################################
+#using MQ20 to keep only cleanly mapped reads because we're using a divergent reference here
+
+python WGS_mapping_bwa_mem.py -s SM16N01 -l DSW44968 -d 170724 -f SM16N01/SM16N01_DSW44968_H33LTCCXY_L2_1.clean.fq.gz -f SM16N01/SM16N01_DSW44968_H33LTCCXY_L2_2.clean.fq.gz -r Dplex4 Dplex_V4_HiC/Dapl_Zhan_v3_HiC.RN.fasta --minMAPQ 20 --threads 19 --javaXmx 24g --runName MQ20 --cleanUpBams --outDir /scratch/smartin/mapping_$t/ --tmpDir /scratch/smartin/mapping_$t/
+
+python WGS_mapping_bwa_mem.py -s SM16N20 -l DSW44964 -d 170724 -f SM16N20/SM16N20_DSW44964_H3533CCXY_L5_1.clean.fq.gz -f SM16N20/SM16N20_DSW44964_H3533CCXY_L5_2.clean.fq.gz -r Dplex4 Dplex_V4_HiC/Dapl_Zhan_v3_HiC.RN.fasta --minMAPQ 20 --threads 19 --javaXmx 24g --runName MQ20 --cleanUpBams --outDir /scratch/smartin/mapping_$t/ --tmpDir /scratch/smartin/mapping_$t/
+
+python WGS_mapping_bwa_mem.py -s SM16N37 -l DSW44975 -d 170724 -f SM16N37/SM16N37_DSW44975_H33LTCCXY_L1_1.clean.fq.gz -f SM16N37/SM16N37_DSW44975_H33LTCCXY_L1_2.clean.fq.gz -r Dplex4 Dplex_V4_HiC/Dapl_Zhan_v3_HiC.RN.fasta --minMAPQ 20 --threads 19 --javaXmx 24g --runName MQ20 --cleanUpBams --outDir /scratch/smartin/mapping_$t/ --tmpDir /scratch/smartin/mapping_$t/
+
+python WGS_mapping_bwa_mem.py -s SM16S06 -l DSW31515 -d 170110 -f S06/S06_DSW31515_HF737ALXX_L8_1.fq.gz -f S06/S06_DSW31515_HF737ALXX_L8_2.fq.gz -r Dplex4 Dplex_V4_HiC/Dapl_Zhan_v3_HiC.RN.fasta --minMAPQ 20 --threads 19 --javaXmx 24g --runName MQ20 --cleanUpBams --outDir /scratch/smartin/mapping_$t/ --tmpDir /scratch/smartin/mapping_$t/
+
+python WGS_mapping_bwa_mem.py -s SM17S01 -l DSW44989 -d 170724 -f SM17S01/SM17S01_DSW44989_H355CCCXY_L3_1.clean.fq.gz -f SM17S01/SM17S01_DSW44989_H355CCCXY_L3_2.clean.fq.gz -r Dplex4 Dplex_V4_HiC/Dapl_Zhan_v3_HiC.RN.fasta --minMAPQ 20 --threads 19 --javaXmx 24g --runName MQ20 --cleanUpBams --outDir /scratch/smartin/mapping_$t/ --tmpDir /scratch/smartin/mapping_$t/
+
+python WGS_mapping_bwa_mem.py -s SM15W72 -l DSW44976 -d 170724 -f SM15W72/SM15W72_DSW44976_H33LTCCXY_L1_1.clean.paired.fq.gz -f SM15W72/SM15W72_DSW44976_H33LTCCXY_L1_2.clean.paired.fq.gz -r Dplex4 Dplex_V4_HiC/Dapl_Zhan_v3_HiC.RN.fasta --minMAPQ 20 --threads 19 --javaXmx 24g --runName MQ20 --cleanUpBams --outDir /scratch/smartin/mapping_$t/ --tmpDir /scratch/smartin/mapping_$t/
+
+python WGS_mapping_bwa_mem.py -s SM15W74 -l DSW31519 -d 170110 -f W74/W74_DSW31519_HF5KHALXX_L4_1.fq.gz -f W74/W74_DSW31519_HF5KHALXX_L4_2.fq.gz -r Dplex4 Dplex_V4_HiC/Dapl_Zhan_v3_HiC.RN.fasta --minMAPQ 20 --threads 19 --javaXmx 24g --runName MQ20 --cleanUpBams --outDir /scratch/smartin/mapping_$t/ --tmpDir /scratch/smartin/mapping_$t/
+
+python WGS_mapping_bwa_mem.py -s MK09AU113 -l _ -d 2014 -f SRR1552518_Chry_AUS_113_M_1.fastq.gz -f SRR1552518_Chry_AUS_113_M_2.fastq.gz -r Dplex4 Dplex_V4_HiC/Dapl_Zhan_v3_HiC.RN.fasta --minMAPQ 20 --threads 19 --javaXmx 24g --runName MQ20 --cleanUpBams --outDir /scratch/smartin/mapping_$t/ --tmpDir /scratch/smartin/mapping_$t/
+
+python WGS_mapping_bwa_mem.py -s MK10TX01 -l _ -d 2014 -f SRR1980588_Gili_TX_01_F_1.fastq.gz -f SRR1980588_Gili_TX_01_F_2.fastq.gz -r Dplex4 Dplex_V4_HiC/Dapl_Zhan_v3_HiC.RN.fasta --minMAPQ 20 --threads 19 --javaXmx 24g --runName MQ20 --cleanUpBams --outDir /scratch/smartin/mapping_$t/ --tmpDir /scratch/smartin/mapping_$t/
+
+python WGS_mapping_bwa_mem.py -s MK10CRC30 -l _ -d 2014 -f SRR1552524_Gili_CRC_30_M_1.fastq.gz -f SRR1552524_Gili_CRC_30_M_2.fastq.gz -r Dplex4 Dplex_V4_HiC/Dapl_Zhan_v3_HiC.RN.fasta --minMAPQ 20 --threads 19 --javaXmx 24g --runName MQ20 --cleanUpBams --outDir /scratch/smartin/mapping_$t/ --tmpDir /scratch/smartin/mapping_$t/
+
+python WGS_mapping_bwa_mem.py -s MK09MA35 -l _ -d 2014 -f SRR1548578_Plex_MA_HI035_F_1.fastq.gz -f SRR1548578_Plex_MA_HI035_F_2.fastq.gz -r Dplex4 Dplex_V4_HiC/Dapl_Zhan_v3_HiC.RN.fasta --minMAPQ 20 --threads 19 --javaXmx 24g --runName MQ20 --cleanUpBams --outDir /scratch/smartin/mapping_$t/ --tmpDir /scratch/smartin/mapping_$t/
+
+python WGS_mapping_bwa_mem.py -s MK07WSM36 -l _ -d 2014 -f SRR1549537_Plex_WSM_M36_M_1.fastq.gz -f SRR1549537_Plex_WSM_M36_M_2.fastq.gz -r Dplex4 Dplex_V4_HiC/Dapl_Zhan_v3_HiC.RN.fasta --minMAPQ 20 --threads 19 --javaXmx 24g --runName MQ20 --cleanUpBams --outDir /scratch/smartin/mapping_$t/ --tmpDir /scratch/smartin/mapping_$t/
+
+python WGS_mapping_bwa_mem.py -s MK12PRT18 -l _ -d 2014 -f SRR1551992_Plex_PRT_P18_M_1.fastq.gz -f SRR1551992_Plex_PRT_P18_M_2.fastq.gz -r Dplex4 Dplex_V4_HiC/Dapl_Zhan_v3_HiC.RN.fasta --minMAPQ 20 --threads 19 --javaXmx 24g --runName MQ20 --cleanUpBams --outDir /scratch/smartin/mapping_$t/ --tmpDir /scratch/smartin/mapping_$t/
+
+python WGS_mapping_bwa_mem.py -s MK10CR92 -l _ -d 2014 -f SRR1552522_Eres_CRC_92_F_1.fastq.gz -f SRR1552522_Eres_CRC_92_F_2.fastq.gz -r Dplex4 Dplex_V4_HiC/Dapl_Zhan_v3_HiC.RN.fasta --minMAPQ 20 --threads 19 --javaXmx 24g --runName MQ20 --cleanUpBams --outDir /scratch/smartin/mapping_$t/ --tmpDir /scratch/smartin/mapping_$t/
+
+python WGS_mapping_bwa_mem.py -s MK09FL27 -l _ -d 2014 -f SRR1552523_Eres_FL_27_M_1.fastq.gz -f SRR1552523_Eres_FL_27_M_2.fastq.gz -r Dplex4 Dplex_V4_HiC/Dapl_Zhan_v3_HiC.RN.fasta --minMAPQ 20 --threads 19 --javaXmx 24g --runName MQ20 --cleanUpBams --outDir /scratch/smartin/mapping_$t/ --tmpDir /scratch/smartin/mapping_$t/
+
+python WGS_mapping_bwa_mem.py -s MK10B16008 -l _ -d 2014 -f SRR1552521_Erip_BRA_16008_M_1.fastq.gz -f SRR1552521_Erip_BRA_16008_M_2.fastq.gz -r Dplex4 Dplex_V4_HiC/Dapl_Zhan_v3_HiC.RN.fasta --minMAPQ 20 --threads 19 --javaXmx 24g --runName MQ20 --cleanUpBams --outDir /scratch/smartin/mapping_$t/ --tmpDir /scratch/smartin/mapping_$t/
+
+python WGS_mapping_bwa_mem.py -s RG28754 -l _ -d 2016 -f SRR6930650_mln_RG28754_1.fastq.gz -f SRR6930650_mln_RG28754_2.fastq.gz -r Dplex4 Dplex_V4_HiC/Dapl_Zhan_v3_HiC.RN.fasta --minMAPQ 20 --threads 19 --javaXmx 24g --runName MQ20 --cleanUpBams --outDir /scratch/smartin/mapping_$t/ --tmpDir /scratch/smartin/mapping_$t/
+
+python WGS_mapping_bwa_mem.py -s RG28754 -l orig4 -d 2016 -f SRR6930650_mln_RG28754_1.fastq.gz -f SRR6930650_mln_RG28754_2.fastq.gz -r Dplex4 Dplex_V4_HiC/Dapl_Zhan_v3_HiC.RN.fasta --minMAPQ 20 --threads 19 --javaXmx 24g --runName MQ20 --cleanUpBams --outDir /scratch/smartin/mapping_$t/ --tmpDir /scratch/smartin/mapping_$t/
+
+python WGS_mapping_bwa_mem.py -s SM19K001 -l 309 -d 200115 -f SM19K001/SM19K001_EDSW200000309-1a_HYGJVDSXX_L2_1.fq.gz -f SM19K001/SM19K001_EDSW200000309-1a_HYGJVDSXX_L2_2.fq.gz -r Dplex4 Dplex_V4_HiC/Dapl_Zhan_v3_HiC.RN.fasta --minMAPQ 20 --threads 19 --javaXmx 24g --runName MQ20 --cleanUpBams --outDir /scratch/smartin/mapping_$t/ --tmpDir /scratch/smartin/mapping_$t/
+

@@ -1,0 +1,151 @@
+######################################
+### Dchry2.2 as reference
+######################################
+
+python WGS_mapping_bwa_mem.py -s SM15W61 -l DSW44971 -d 170724 -f SM15W61/SM15W61_DSW44971_H33LTCCXY_L2_1.clean.fq.gz -f SM15W61/SM15W61_DSW44971_H33LTCCXY_L2_2.clean.fq.gz -r Dchry2.2 Dchry2.2.fa --threads 19 --javaXmx 24g --runName default --cleanUpBams --outDir /scratch/smartin/mapping_$t/ --tmpDir /scratch/smartin/mapping_$t/
+
+python WGS_mapping_bwa_mem.py -s SM15W66 -l DSW44966 -d 170724 -f SM15W66/SM15W66_DSW44966_H33LTCCXY_L2_1.clean.fq.gz -f SM15W66/SM15W66_DSW44966_H33LTCCXY_L2_2.clean.fq.gz -r Dchry2.2 Dchry2.2.fa --threads 19 --javaXmx 24g --runName default --cleanUpBams --outDir /scratch/smartin/mapping_$t/ --tmpDir /scratch/smartin/mapping_$t/
+
+python WGS_mapping_bwa_mem.py -s SM15W72 -l DSW44976 -d 170724 -f SM15W72/SM15W72_DSW44976_H33LTCCXY_L1_1.clean.paired.fq.gz -f SM15W72/SM15W72_DSW44976_H33LTCCXY_L1_2.clean.paired.fq.gz -r Dchry2.2 Dchry2.2.fa --threads 19 --javaXmx 24g --runName default --cleanUpBams --outDir /scratch/smartin/mapping_$t/ --tmpDir /scratch/smartin/mapping_$t/
+
+python WGS_mapping_bwa_mem.py -s SM15W74 -l DSW31519 -d 170110 -f SM15W74/W74_DSW31519_HF5KHALXX_L4_1.fq.gz -f SM15W74/W74_DSW31519_HF5KHALXX_L4_2.fq.gz -r Dchry2.2 Dchry2.2.fa --threads 19 --javaXmx 24g --runName default --cleanUpBams --outDir /scratch/smartin/mapping_$t/ --tmpDir /scratch/smartin/mapping_$t/
+
+python WGS_mapping_bwa_mem.py -s SM16S06 -l DSW31515 -d 170110 -f S06/S06_DSW31515_HF737ALXX_L8_1.fq.gz -f S06/S06_DSW31515_HF737ALXX_L8_2.fq.gz -r Dchry2.2 Dchry2.2.fa --threads 19 --javaXmx 24g --runName default --cleanUpBams --outDir /scratch/smartin/mapping_$t/ --tmpDir /scratch/smartin/mapping_$t/
+
+python WGS_mapping_bwa_mem.py -s SM17S01 -l DSW44989 -d 170724 -f SM17S01/SM17S01_DSW44989_H355CCCXY_L3_1.clean.fq.gz -f SM17S01/SM17S01_DSW44989_H355CCCXY_L3_2.clean.fq.gz -r Dchry2.2 Dchry2.2.fa --threads 19 --javaXmx 24g --runName default --cleanUpBams --outDir /scratch/smartin/mapping_$t/ --tmpDir /scratch/smartin/mapping_$t/
+
+python WGS_mapping_bwa_mem.py -s SM16N04 -l DSW31516 -d 170110 -f N04/N04_DSW31516_HF737ALXX_L8_1.fq.gz -f N04/N04_DSW31516_HF737ALXX_L8_2.fq.gz -r Dchry2.2 Dchry2.2.fa --threads 19 --javaXmx 24g --runName default --cleanUpBams --outDir /scratch/smartin/mapping_$t/ --tmpDir /scratch/smartin/mapping_$t/ && rsync -av /scratch/smartin/mapping_$t/
+
+python WGS_mapping_bwa_mem.py -s SM16N05 -l DSW44977 -d 170724 -f SM16N05/SM16N05_DSW44977_H33LTCCXY_L2_1.clean.fq.gz -f SM16N05/SM16N05_DSW44977_H33LTCCXY_L2_2.clean.fq.gz -r Dchry2.2 Dchry2.2.fa --threads 19 --javaXmx 24g --runName default --cleanUpBams --outDir /scratch/smartin/mapping_$t/
+
+python WGS_mapping_bwa_mem.py -s SM16N20 -l DSW44964 -d 170724 -f SM16N20/SM16N20_DSW44964_H3533CCXY_L5_1.clean.fq.gz -f SM16N20/SM16N20_DSW44964_H3533CCXY_L5_2.clean.fq.gz -r Dchry2.2 Dchry2.2.fa --threads 19 --javaXmx 24g --runName default --cleanUpBams --outDir /scratch/smartin/mapping_$t/
+
+python WGS_mapping_bwa_mem.py -s SM16N37 -l DSW44975 -d 170724 -f SM16N37/SM16N37_DSW44975_H33LTCCXY_L1_1.clean.fq.gz -f SM16N37/SM16N37_DSW44975_H33LTCCXY_L1_2.clean.fq.gz -r Dchry2.2 Dchry2.2.fa --threads 19 --javaXmx 24g --runName default --cleanUpBams --outDir /scratch/smartin/mapping_$t/
+
+
+######################################
+### Dchry2 haplotigs as reference
+######################################
+
+
+WGS_mapping_bwa_mem.py -s SM15W61 -l DSW44971 -d 170724 -f SM15W61/SM15W61_DSW44971_H33LTCCXY_L2_1.clean.fq.gz -f SM15W61/SM15W61_DSW44971_H33LTCCXY_L2_2.clean.fq.gz -r Dchry2HAP  Dchry2.haplotigs.fasta --threads 19 --javaXmx 24g --runName default --cleanUpBams --flagRemove 4  --outDir /scratch/smartin/mapping_$t/ --tmpDir /scratch/smartin/mapping_$t/
+
+WGS_mapping_bwa_mem.py -s SM15W66 -l DSW44966 -d 170724 -f SM15W66/SM15W66_DSW44966_H33LTCCXY_L2_1.clean.fq.gz -f SM15W66/SM15W66_DSW44966_H33LTCCXY_L2_2.clean.fq.gz -r Dchry2HAP  Dchry2.haplotigs.fasta --threads 19 --javaXmx 24g --runName default --cleanUpBams --flagRemove 4 --outDir /scratch/smartin/mapping_$t/ --tmpDir /scratch/smartin/mapping_$t/
+
+WGS_mapping_bwa_mem.py -s SM15W72 -l DSW44976 -d 170724 -f SM15W72/SM15W72_DSW44976_H33LTCCXY_L1_1.clean.paired.fq.gz -f SM15W72/SM15W72_DSW44976_H33LTCCXY_L1_2.clean.paired.fq.gz -r Dchry2HAP  Dchry2.haplotigs.fasta --threads 19 --javaXmx 24g --runName default --cleanUpBams --flagRemove 4 --outDir /scratch/smartin/mapping_$t/ --tmpDir /scratch/smartin/mapping_$t/
+
+WGS_mapping_bwa_mem.py -s SM15W74 -l DSW31519 -d 170110 -f SM15W74/W74_DSW31519_HF5KHALXX_L4_1.fq.gz -f SM15W74/W74_DSW31519_HF5KHALXX_L4_2.fq.gz -r Dchry2HAP  Dchry2.haplotigs.fasta --threads 19 --javaXmx 24g --runName default --cleanUpBams --flagRemove 4 --outDir /scratch/smartin/mapping_$t/ --tmpDir /scratch/smartin/mapping_$t/
+
+WGS_mapping_bwa_mem.py -s SM16S06 -l DSW31515 -d 170110 -f S06/S06_DSW31515_HF737ALXX_L8_1.fq.gz -f S06/S06_DSW31515_HF737ALXX_L8_2.fq.gz -r Dchry2HAP  Dchry2.haplotigs.fasta --threads 19 --javaXmx 24g --runName default --cleanUpBams --flagRemove 4 --outDir /scratch/smartin/mapping_$t/ --tmpDir /scratch/smartin/mapping_$t/
+
+WGS_mapping_bwa_mem.py -s SM17S01 -l DSW44989 -d 170724 -f SM17S01/SM17S01_DSW44989_H355CCCXY_L3_1.clean.fq.gz -f SM17S01/SM17S01_DSW44989_H355CCCXY_L3_2.clean.fq.gz -r Dchry2HAP  Dchry2.haplotigs.fasta --threads 19 --javaXmx 24g --runName default --cleanUpBams --flagRemove 4 --outDir /scratch/smartin/mapping_$t/ --tmpDir /scratch/smartin/mapping_$t/
+
+WGS_mapping_bwa_mem.py -s SM16N04 -l DSW31516 -d 170110 -f N04/N04_DSW31516_HF737ALXX_L8_1.fq.gz -f N04/N04_DSW31516_HF737ALXX_L8_2.fq.gz -r Dchry2HAP  Dchry2.haplotigs.fasta --threads 19 --javaXmx 24g --runName default --cleanUpBams --flagRemove 4 --outDir /scratch/smartin/mapping_$t/ --tmpDir /scratch/smartin/mapping_$t/
+
+WGS_mapping_bwa_mem.py -s SM16N05 -l DSW44977 -d 170724 -f SM16N05/SM16N05_DSW44977_H33LTCCXY_L2_1.clean.fq.gz -f SM16N05/SM16N05_DSW44977_H33LTCCXY_L2_2.clean.fq.gz -r Dchry2HAP  Dchry2.haplotigs.fasta --threads 19 --javaXmx 24g --runName default --cleanUpBams --flagRemove 4 --outDir /scratch/smartin/mapping_$t/ --tmpDir /scratch/smartin/mapping_$t/
+
+WGS_mapping_bwa_mem.py -s SM16N20 -l DSW44964 -d 170724 -f SM16N20/SM16N20_DSW44964_H3533CCXY_L5_1.clean.fq.gz -f SM16N20/SM16N20_DSW44964_H3533CCXY_L5_2.clean.fq.gz -r Dchry2HAP  Dchry2.haplotigs.fasta --threads 19 --javaXmx 24g --runName default --cleanUpBams --flagRemove 4 --outDir /scratch/smartin/mapping_$t/ --tmpDir /scratch/smartin/mapping_$t/
+
+WGS_mapping_bwa_mem.py -s SM16N37 -l DSW44975 -d 170724 -f SM16N37/SM16N37_DSW44975_H33LTCCXY_L1_1.clean.fq.gz -f SM16N37/SM16N37_DSW44975_H33LTCCXY_L1_2.clean.fq.gz -r Dchry2HAP  Dchry2.haplotigs.fasta --threads 19 --javaXmx 24g --runName default --cleanUpBams --flagRemove 4 --outDir /scratch/smartin/mapping_$t/ --tmpDir /scratch/smartin/mapping_$t/
+
+
+######################################
+### MB18102MAT as reference
+######################################
+
+WGS_mapping_bwa_mem.py -s SM15W61 -l DSW44971 -d 170724 -f SM15W61/SM15W61_DSW44971_H33LTCCXY_L2_1.clean.fq.gz -f SM15W61/SM15W61_DSW44971_H33LTCCXY_L2_2.clean.fq.gz -r MB18102MAT  MB18102_MAT.fasta --threads 19 --javaXmx 24g --runName default --cleanUpBams --outDir /scratch/smartin/mapping_$t/ --tmpDir /scratch/smartin/mapping_$t/
+
+WGS_mapping_bwa_mem.py -s SM15W66 -l DSW44966 -d 170724 -f SM15W66/SM15W66_DSW44966_H33LTCCXY_L2_1.clean.fq.gz -f SM15W66/SM15W66_DSW44966_H33LTCCXY_L2_2.clean.fq.gz -r MB18102MAT  MB18102_MAT.fasta --threads 19 --javaXmx 24g --runName default --cleanUpBams --outDir /scratch/smartin/mapping_$t/ --tmpDir /scratch/smartin/mapping_$t/
+
+WGS_mapping_bwa_mem.py -s SM15W72 -l DSW44976 -d 170724 -f SM15W72/SM15W72_DSW44976_H33LTCCXY_L1_1.clean.paired.fq.gz -f SM15W72/SM15W72_DSW44976_H33LTCCXY_L1_2.clean.paired.fq.gz -r MB18102MAT  MB18102_MAT.fasta --threads 19 --javaXmx 24g --runName default --cleanUpBams --outDir /scratch/smartin/mapping_$t/ --tmpDir /scratch/smartin/mapping_$t/
+
+WGS_mapping_bwa_mem.py -s SM15W74 -l DSW31519 -d 170110 -f SM15W74/W74_DSW31519_HF5KHALXX_L4_1.fq.gz -f SM15W74/W74_DSW31519_HF5KHALXX_L4_2.fq.gz -r MB18102MAT  MB18102_MAT.fasta --threads 19 --javaXmx 24g --runName default --cleanUpBams --outDir /scratch/smartin/mapping_$t/ --tmpDir /scratch/smartin/mapping_$t/
+
+WGS_mapping_bwa_mem.py -s SM16S06 -l DSW31515 -d 170110 -f S06/S06_DSW31515_HF737ALXX_L8_1.fq.gz -f S06/S06_DSW31515_HF737ALXX_L8_2.fq.gz -r MB18102MAT  MB18102_MAT.fasta --threads 19 --javaXmx 24g --runName default --cleanUpBams --outDir /scratch/smartin/mapping_$t/ --tmpDir /scratch/smartin/mapping_$t/
+
+WGS_mapping_bwa_mem.py -s SM17S01 -l DSW44989 -d 170724 -f SM17S01/SM17S01_DSW44989_H355CCCXY_L3_1.clean.fq.gz -f SM17S01/SM17S01_DSW44989_H355CCCXY_L3_2.clean.fq.gz -r MB18102MAT  MB18102_MAT.fasta --threads 19 --javaXmx 24g --runName default --cleanUpBams --outDir /scratch/smartin/mapping_$t/ --tmpDir /scratch/smartin/mapping_$t/
+
+WGS_mapping_bwa_mem.py -s SM16N04 -l DSW31516 -d 170110 -f N04/N04_DSW31516_HF737ALXX_L8_1.fq.gz -f N04/N04_DSW31516_HF737ALXX_L8_2.fq.gz -r MB18102MAT  MB18102_MAT.fasta --threads 19 --javaXmx 24g --runName default --cleanUpBams --outDir /scratch/smartin/mapping_$t/ --tmpDir /scratch/smartin/mapping_$t/
+
+WGS_mapping_bwa_mem.py -s SM16N05 -l DSW44977 -d 170724 -f SM16N05/SM16N05_DSW44977_H33LTCCXY_L2_1.clean.fq.gz -f SM16N05/SM16N05_DSW44977_H33LTCCXY_L2_2.clean.fq.gz -r MB18102MAT  MB18102_MAT.fasta --threads 19 --javaXmx 24g --runName default --cleanUpBams --outDir /scratch/smartin/mapping_$t/ --tmpDir /scratch/smartin/mapping_$t/
+
+WGS_mapping_bwa_mem.py -s SM16N20 -l DSW44964 -d 170724 -f SM16N20/SM16N20_DSW44964_H3533CCXY_L5_1.clean.fq.gz -f SM16N20/SM16N20_DSW44964_H3533CCXY_L5_2.clean.fq.gz -r MB18102MAT  MB18102_MAT.fasta --threads 19 --javaXmx 24g --runName default --cleanUpBams --outDir /scratch/smartin/mapping_$t/ --tmpDir /scratch/smartin/mapping_$t/
+
+WGS_mapping_bwa_mem.py -s SM16N37 -l DSW44975 -d 170724 -f SM16N37/SM16N37_DSW44975_H33LTCCXY_L1_1.clean.fq.gz -f SM16N37/SM16N37_DSW44975_H33LTCCXY_L1_2.clean.fq.gz -r MB18102MAT  MB18102_MAT.fasta --threads 19 --javaXmx 24g --runName default --cleanUpBams --outDir /scratch/smartin/mapping_$t/ --tmpDir /scratch/smartin/mapping_$t/
+
+
+######################################
+### MB18102PAT as reference
+######################################
+
+WGS_mapping_bwa_mem.py -s SM15W61 -l DSW44971 -d 170724 -f SM15W61/SM15W61_DSW44971_H33LTCCXY_L2_1.clean.fq.gz -f SM15W61/SM15W61_DSW44971_H33LTCCXY_L2_2.clean.fq.gz -r MB18102PAT  MB18102_PAT.fasta --threads 19 --javaXmx 24g --runName default --cleanUpBams --outDir /scratch/smartin/mapping_$t/ --tmpDir /scratch/smartin/mapping_$t/
+
+WGS_mapping_bwa_mem.py -s SM15W66 -l DSW44966 -d 170724 -f SM15W66/SM15W66_DSW44966_H33LTCCXY_L2_1.clean.fq.gz -f SM15W66/SM15W66_DSW44966_H33LTCCXY_L2_2.clean.fq.gz -r MB18102PAT  MB18102_PAT.fasta --threads 19 --javaXmx 24g --runName default --cleanUpBams --outDir /scratch/smartin/mapping_$t/ --tmpDir /scratch/smartin/mapping_$t/
+
+WGS_mapping_bwa_mem.py -s SM15W72 -l DSW44976 -d 170724 -f SM15W72/SM15W72_DSW44976_H33LTCCXY_L1_1.clean.paired.fq.gz -f SM15W72/SM15W72_DSW44976_H33LTCCXY_L1_2.clean.paired.fq.gz -r MB18102PAT  MB18102_PAT.fasta --threads 19 --javaXmx 24g --runName default --cleanUpBams --outDir /scratch/smartin/mapping_$t/ --tmpDir /scratch/smartin/mapping_$t/
+
+WGS_mapping_bwa_mem.py -s SM15W74 -l DSW31519 -d 170110 -f SM15W74/W74_DSW31519_HF5KHALXX_L4_1.fq.gz -f SM15W74/W74_DSW31519_HF5KHALXX_L4_2.fq.gz -r MB18102PAT  MB18102_PAT.fasta --threads 19 --javaXmx 24g --runName default --cleanUpBams --outDir /scratch/smartin/mapping_$t/ --tmpDir /scratch/smartin/mapping_$t/
+
+WGS_mapping_bwa_mem.py -s SM16S06 -l DSW31515 -d 170110 -f S06/S06_DSW31515_HF737ALXX_L8_1.fq.gz -f S06/S06_DSW31515_HF737ALXX_L8_2.fq.gz -r MB18102PAT  MB18102_PAT.fasta --threads 19 --javaXmx 24g --runName default --cleanUpBams --outDir /scratch/smartin/mapping_$t/ --tmpDir /scratch/smartin/mapping_$t/
+
+WGS_mapping_bwa_mem.py -s SM17S01 -l DSW44989 -d 170724 -f SM17S01/SM17S01_DSW44989_H355CCCXY_L3_1.clean.fq.gz -f SM17S01/SM17S01_DSW44989_H355CCCXY_L3_2.clean.fq.gz -r MB18102PAT  MB18102_PAT.fasta --threads 19 --javaXmx 24g --runName default --cleanUpBams --outDir /scratch/smartin/mapping_$t/ --tmpDir /scratch/smartin/mapping_$t/
+
+WGS_mapping_bwa_mem.py -s SM16N04 -l DSW31516 -d 170110 -f N04/N04_DSW31516_HF737ALXX_L8_1.fq.gz -f N04/N04_DSW31516_HF737ALXX_L8_2.fq.gz -r MB18102PAT  MB18102_PAT.fasta --threads 19 --javaXmx 24g --runName default --cleanUpBams --outDir /scratch/smartin/mapping_$t/ --tmpDir /scratch/smartin/mapping_$t/
+
+WGS_mapping_bwa_mem.py -s SM16N05 -l DSW44977 -d 170724 -f SM16N05/SM16N05_DSW44977_H33LTCCXY_L2_1.clean.fq.gz -f SM16N05/SM16N05_DSW44977_H33LTCCXY_L2_2.clean.fq.gz -r MB18102PAT  MB18102_PAT.fasta --threads 19 --javaXmx 24g --runName default --cleanUpBams --outDir /scratch/smartin/mapping_$t/ --tmpDir /scratch/smartin/mapping_$t/
+
+WGS_mapping_bwa_mem.py -s SM16N20 -l DSW44964 -d 170724 -f SM16N20/SM16N20_DSW44964_H3533CCXY_L5_1.clean.fq.gz -f SM16N20/SM16N20_DSW44964_H3533CCXY_L5_2.clean.fq.gz -r MB18102PAT  MB18102_PAT.fasta --threads 19 --javaXmx 24g --runName default --cleanUpBams --outDir /scratch/smartin/mapping_$t/ --tmpDir /scratch/smartin/mapping_$t/
+
+WGS_mapping_bwa_mem.py -s SM16N37 -l DSW44975 -d 170724 -f SM16N37/SM16N37_DSW44975_H33LTCCXY_L1_1.clean.fq.gz -f SM16N37/SM16N37_DSW44975_H33LTCCXY_L1_2.clean.fq.gz -r MB18102PAT  MB18102_PAT.fasta --threads 19 --javaXmx 24g --runName default --cleanUpBams --outDir /scratch/smartin/mapping_$t/ --tmpDir /scratch/smartin/mapping_$t/
+
+
+######################################
+### SB211MAT as reference
+######################################
+
+WGS_mapping_bwa_mem.py -s SM15W61 -l DSW44971 -d 170724 -f SM15W61/SM15W61_DSW44971_H33LTCCXY_L2_1.clean.fq.gz -f SM15W61/SM15W61_DSW44971_H33LTCCXY_L2_2.clean.fq.gz -r SB211MAT  SB211_MAT.fasta --threads 19 --javaXmx 24g --runName default --cleanUpBams --outDir /scratch/smartin/mapping_$t/ --tmpDir /scratch/smartin/mapping_$t/
+
+WGS_mapping_bwa_mem.py -s SM15W66 -l DSW44966 -d 170724 -f SM15W66/SM15W66_DSW44966_H33LTCCXY_L2_1.clean.fq.gz -f SM15W66/SM15W66_DSW44966_H33LTCCXY_L2_2.clean.fq.gz -r SB211MAT  SB211_MAT.fasta --threads 19 --javaXmx 24g --runName default --cleanUpBams --outDir /scratch/smartin/mapping_$t/ --tmpDir /scratch/smartin/mapping_$t/
+
+WGS_mapping_bwa_mem.py -s SM15W72 -l DSW44976 -d 170724 -f SM15W72/SM15W72_DSW44976_H33LTCCXY_L1_1.clean.paired.fq.gz -f SM15W72/SM15W72_DSW44976_H33LTCCXY_L1_2.clean.paired.fq.gz -r SB211MAT  SB211_MAT.fasta --threads 19 --javaXmx 24g --runName default --cleanUpBams --outDir /scratch/smartin/mapping_$t/ --tmpDir /scratch/smartin/mapping_$t/
+
+WGS_mapping_bwa_mem.py -s SM15W74 -l DSW31519 -d 170110 -f SM15W74/W74_DSW31519_HF5KHALXX_L4_1.fq.gz -f SM15W74/W74_DSW31519_HF5KHALXX_L4_2.fq.gz -r SB211MAT  SB211_MAT.fasta --threads 19 --javaXmx 24g --runName default --cleanUpBams --outDir /scratch/smartin/mapping_$t/ --tmpDir /scratch/smartin/mapping_$t/
+
+WGS_mapping_bwa_mem.py -s SM16S06 -l DSW31515 -d 170110 -f S06/S06_DSW31515_HF737ALXX_L8_1.fq.gz -f S06/S06_DSW31515_HF737ALXX_L8_2.fq.gz -r SB211MAT  SB211_MAT.fasta --threads 19 --javaXmx 24g --runName default --cleanUpBams --outDir /scratch/smartin/mapping_$t/ --tmpDir /scratch/smartin/mapping_$t/
+
+WGS_mapping_bwa_mem.py -s SM17S01 -l DSW44989 -d 170724 -f SM17S01/SM17S01_DSW44989_H355CCCXY_L3_1.clean.fq.gz -f SM17S01/SM17S01_DSW44989_H355CCCXY_L3_2.clean.fq.gz -r SB211MAT  SB211_MAT.fasta --threads 19 --javaXmx 24g --runName default --cleanUpBams --outDir /scratch/smartin/mapping_$t/ --tmpDir /scratch/smartin/mapping_$t/
+
+WGS_mapping_bwa_mem.py -s SM16N04 -l DSW31516 -d 170110 -f N04/N04_DSW31516_HF737ALXX_L8_1.fq.gz -f N04/N04_DSW31516_HF737ALXX_L8_2.fq.gz -r SB211MAT  SB211_MAT.fasta --threads 19 --javaXmx 24g --runName default --cleanUpBams --outDir /scratch/smartin/mapping_$t/ --tmpDir /scratch/smartin/mapping_$t/
+
+WGS_mapping_bwa_mem.py -s SM16N05 -l DSW44977 -d 170724 -f SM16N05/SM16N05_DSW44977_H33LTCCXY_L2_1.clean.fq.gz -f SM16N05/SM16N05_DSW44977_H33LTCCXY_L2_2.clean.fq.gz -r SB211MAT  SB211_MAT.fasta --threads 19 --javaXmx 24g --runName default --cleanUpBams --outDir /scratch/smartin/mapping_$t/ --tmpDir /scratch/smartin/mapping_$t/
+
+WGS_mapping_bwa_mem.py -s SM16N20 -l DSW44964 -d 170724 -f SM16N20/SM16N20_DSW44964_H3533CCXY_L5_1.clean.fq.gz -f SM16N20/SM16N20_DSW44964_H3533CCXY_L5_2.clean.fq.gz -r SB211MAT  SB211_MAT.fasta --threads 19 --javaXmx 24g --runName default --cleanUpBams --outDir /scratch/smartin/mapping_$t/ --tmpDir /scratch/smartin/mapping_$t/
+
+WGS_mapping_bwa_mem.py -s SM16N37 -l DSW44975 -d 170724 -f SM16N37/SM16N37_DSW44975_H33LTCCXY_L1_1.clean.fq.gz -f SM16N37/SM16N37_DSW44975_H33LTCCXY_L1_2.clean.fq.gz -r SB211MAT  SB211_MAT.fasta --threads 19 --javaXmx 24g --runName default --cleanUpBams --outDir /scratch/smartin/mapping_$t/ --tmpDir /scratch/smartin/mapping_$t/
+
+
+######################################
+### SB211PAT as reference
+######################################
+
+WGS_mapping_bwa_mem.py -s SM15W61 -l DSW44971 -d 170724 -f SM15W61/SM15W61_DSW44971_H33LTCCXY_L2_1.clean.fq.gz -f SM15W61/SM15W61_DSW44971_H33LTCCXY_L2_2.clean.fq.gz -r SB211PAT  SB211_PAT.fasta --threads 19 --javaXmx 24g --runName default --cleanUpBams --outDir /scratch/smartin/mapping_$t/ --tmpDir /scratch/smartin/mapping_$t/"
+
+WGS_mapping_bwa_mem.py -s SM15W66 -l DSW44966 -d 170724 -f SM15W66/SM15W66_DSW44966_H33LTCCXY_L2_1.clean.fq.gz -f SM15W66/SM15W66_DSW44966_H33LTCCXY_L2_2.clean.fq.gz -r SB211PAT  SB211_PAT.fasta --threads 19 --javaXmx 24g --runName default --cleanUpBams --outDir /scratch/smartin/mapping_$t/ --tmpDir /scratch/smartin/mapping_$t/
+
+WGS_mapping_bwa_mem.py -s SM15W72 -l DSW44976 -d 170724 -f SM15W72/SM15W72_DSW44976_H33LTCCXY_L1_1.clean.paired.fq.gz -f SM15W72/SM15W72_DSW44976_H33LTCCXY_L1_2.clean.paired.fq.gz -r SB211PAT  SB211_PAT.fasta --threads 19 --javaXmx 24g --runName default --cleanUpBams --outDir /scratch/smartin/mapping_$t/ --tmpDir /scratch/smartin/mapping_$t/
+
+WGS_mapping_bwa_mem.py -s SM15W74 -l DSW31519 -d 170110 -f SM15W74/W74_DSW31519_HF5KHALXX_L4_1.fq.gz -f SM15W74/W74_DSW31519_HF5KHALXX_L4_2.fq.gz -r SB211PAT  SB211_PAT.fasta --threads 19 --javaXmx 24g --runName default --cleanUpBams --outDir /scratch/smartin/mapping_$t/ --tmpDir /scratch/smartin/mapping_$t/
+
+WGS_mapping_bwa_mem.py -s SM16S06 -l DSW31515 -d 170110 -f S06/S06_DSW31515_HF737ALXX_L8_1.fq.gz -f S06/S06_DSW31515_HF737ALXX_L8_2.fq.gz -r SB211PAT  SB211_PAT.fasta --threads 19 --javaXmx 24g --runName default --cleanUpBams --outDir /scratch/smartin/mapping_$t/ --tmpDir /scratch/smartin/mapping_$t/
+
+WGS_mapping_bwa_mem.py -s SM17S01 -l DSW44989 -d 170724 -f SM17S01/SM17S01_DSW44989_H355CCCXY_L3_1.clean.fq.gz -f SM17S01/SM17S01_DSW44989_H355CCCXY_L3_2.clean.fq.gz -r SB211PAT  SB211_PAT.fasta --threads 19 --javaXmx 24g --runName default --cleanUpBams --outDir /scratch/smartin/mapping_$t/ --tmpDir /scratch/smartin/mapping_$t/
+
+
+WGS_mapping_bwa_mem.py -s SM16N04 -l DSW31516 -d 170110 -f N04/N04_DSW31516_HF737ALXX_L8_1.fq.gz -f N04/N04_DSW31516_HF737ALXX_L8_2.fq.gz -r SB211PAT  SB211_PAT.fasta --threads 19 --javaXmx 24g --runName default --cleanUpBams --outDir /scratch/smartin/mapping_$t/ --tmpDir /scratch/smartin/mapping_$t/
+
+WGS_mapping_bwa_mem.py -s SM16N05 -l DSW44977 -d 170724 -f SM16N05/SM16N05_DSW44977_H33LTCCXY_L2_1.clean.fq.gz -f SM16N05/SM16N05_DSW44977_H33LTCCXY_L2_2.clean.fq.gz -r SB211PAT  SB211_PAT.fasta --threads 19 --javaXmx 24g --runName default --cleanUpBams --outDir /scratch/smartin/mapping_$t/ --tmpDir /scratch/smartin/mapping_$t/
+
+WGS_mapping_bwa_mem.py -s SM16N20 -l DSW44964 -d 170724 -f SM16N20/SM16N20_DSW44964_H3533CCXY_L5_1.clean.fq.gz -f SM16N20/SM16N20_DSW44964_H3533CCXY_L5_2.clean.fq.gz -r SB211PAT  SB211_PAT.fasta --threads 19 --javaXmx 24g --runName default --cleanUpBams --outDir /scratch/smartin/mapping_$t/ --tmpDir /scratch/smartin/mapping_$t/
+
+WGS_mapping_bwa_mem.py -s SM16N37 -l DSW44975 -d 170724 -f SM16N37/SM16N37_DSW44975_H33LTCCXY_L1_1.clean.fq.gz -f SM16N37/SM16N37_DSW44975_H33LTCCXY_L1_2.clean.fq.gz -r SB211PAT  SB211_PAT.fasta --threads 19 --javaXmx 24g --runName default --cleanUpBams --outDir /scratch/smartin/mapping_$t/ --tmpDir /scratch/smartin/mapping_$t/
+

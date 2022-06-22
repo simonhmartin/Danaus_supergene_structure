@@ -1,0 +1,111 @@
+########################################
+### Dchry2.2 as reference
+########################################
+
+ls $PWD/*Dchry2.2*rmdup.bam | grep -f chry10.list > chry10.Dchry2.2.bam.list
+
+prefix=chry10.BT.Dchry2.2.DP8GQ20.chr15
+bamlist=../Danaus_mapping/chry10.Dchry2.2.bam.list
+assembly=../Danaus_genome/Dchry2/Dchry2.2.fa.hardmasked
+vcf=$prefix.vcf.gz
+regions=contig15.1
+bcftools mpileup --skip-indels -r $regions -f $assembly --annotate FORMAT/DP --bam $bamlist | bcftools call -m -f GQ -O u | bcftools filter -e 'FORMAT/DP < 8 | FORMAT/GQ < 20' --set-GTs . | bcftools filter -e 'AN < 4' |  bgzip > /scratch/smartin/$vcf && rsync -av /scratch/smartin/$vcf . && rm /scratch/smartin/$vcf
+
+# parse vcf (incude REF track to be included in popgen analyses)
+
+out=$prefix.geno.gz
+~/Research/genomics_general/VCF_processing/parseVCF.py -i $vcf --addRefTrack | bgzip > /scratch/smartin/$out && rsync -av /scratch/smartin/$out . && rm -f /scratch/smartin/$out
+
+########################################
+### Dchry2HAP (haplotigs) as reference
+########################################
+
+ls $PWD/*Dchry2HAP*rmdup.bam | grep -f chry10.list > chry10.Dchry2HAP.bam.list
+
+prefix=chry10.BT.Dchry2HAP.DP8GQ20.chr15
+bamlist=../Danaus_mapping/chry10.Dchry2HAP.bam.list
+assembly=../Danaus_genome/Dchry2/Dchry2_haplotigs/Dchry2.haplotigs.hardmasked.fasta
+vcf=$prefix.vcf.gz
+regions=000397F
+bcftools mpileup --skip-indels -r $regions -f $assembly --annotate FORMAT/DP --bam $bamlist | bcftools call -m -f GQ -O u | bcftools filter -e 'FORMAT/DP < 8 | FORMAT/GQ < 20' --set-GTs . | bcftools filter -e 'AN < 4' |  bgzip > /scratch/smartin/$vcf && rsync -av /scratch/smartin/$vcf . && rm /scratch/smartin/$vcf
+
+# parse vcf (incude REF track to be included in popgen analyses)
+
+out=$prefix.geno.gz
+~/Research/genomics_general/VCF_processing/parseVCF.py -i $vcf --addRefTrack | bgzip > /scratch/smartin/$out && rsync -av /scratch/smartin/$out . && rm -f /scratch/smartin/$out
+
+
+########################################
+### SB211PAT as reference
+########################################
+
+ls $PWD/*SB211PAT*rmdup.bam | grep -f chry10.list > chry10.SB211PAT.bam.list
+
+prefix=chry10.BT.SB211PAT.DP8GQ20.chr15
+bamlist=../Danaus_mapping/chry10.SB211PAT.bam.list
+assembly=../Danaus_genome/SB211_trio/assemblies/SB211_PAT.hardmasked.fasta
+vcf=$prefix.vcf.gz
+regions="h1tg000170l,h1tg000359l,h1tg000112l,h1tg000044l"
+qsub -w e -N bcft -pe smp 4 -V ~/scripts/pipe2qsub "bcftools mpileup --skip-indels -r $regions -f $assembly --annotate FORMAT/DP --bam $bamlist | bcftools call -m -f GQ -O u | bcftools filter -e 'FORMAT/DP < 8 | FORMAT/GQ < 20' --set-GTs . | bcftools filter -e 'AN < 4' |  bgzip > /scratch/smartin/$vcf && rsync -av /scratch/smartin/$vcf . && rm /scratch/smartin/$vcf"
+
+# parse vcf (incude REF track to be included in popgen analyses)
+
+out=$prefix.geno.gz
+~/Research/genomics_general/VCF_processing/parseVCF.py -i $vcf --addRefTrack | bgzip > /scratch/smartin/$out && rsync -av /scratch/smartin/$out . && rm -f /scratch/smartin/$out"
+
+
+########################################
+### SB211MAT as reference
+########################################
+
+ls $PWD/*SB211MAT*rmdup.bam | grep -f chry10.list > chry10.SB211MAT.bam.list
+
+prefix=chry10.BT.SB211MAT.DP8GQ20.chr15
+bamlist=../Danaus_mapping/chry10.SB211MAT.bam.list
+assembly=../Danaus_genome/SB211_trio/assemblies/SB211_MAT.hardmasked.fasta
+vcf=$prefix.vcf.gz
+regions="tig00000001,tig00000185"
+bcftools mpileup --skip-indels -r $regions -f $assembly --annotate FORMAT/DP --bam $bamlist | bcftools call -m -f GQ -O u | bcftools filter -e 'FORMAT/DP < 8 | FORMAT/GQ < 20' --set-GTs . | bcftools filter -e 'AN < 4' |  bgzip > /scratch/smartin/$vcf && rsync -av /scratch/smartin/$vcf . && rm /scratch/smartin/$vcf"
+
+# parse vcf (incude REF track to be included in popgen analyses)
+
+out=$prefix.geno.gz
+~/Research/genomics_general/VCF_processing/parseVCF.py -i $vcf --addRefTrack | bgzip > /scratch/smartin/$out && rsync -av /scratch/smartin/$out . && rm -f /scratch/smartin/$out
+
+
+########################################
+### MB18102PAT as reference
+########################################
+
+ls $PWD/*MB18102PAT*rmdup.bam | grep -f chry10.list > chry10.MB18102PAT.bam.list
+
+prefix=chry10.BT.MB18102PAT.DP8GQ20.chr15
+bamlist=../Danaus_mapping/chry10.MB18102PAT.bam.list
+assembly=../Danaus_genome/MB181_trio/KKIM_assemblies/v8/polished/MB18102_PAT.hardmasked.fasta
+vcf=$prefix.vcf.gz
+regions=tig00000001
+bcftools mpileup --skip-indels -r $regions -f $assembly --annotate FORMAT/DP --bam $bamlist | bcftools call -m -f GQ -O u | bcftools filter -e 'FORMAT/DP < 8 | FORMAT/GQ < 20' --set-GTs . | bcftools filter -e 'AN < 4' |  bgzip > /scratch/smartin/$vcf && rsync -av /scratch/smartin/$vcf . && rm /scratch/smartin/$vcf
+
+# parse vcf (incude REF track to be included in popgen analyses)
+
+out=$prefix.geno.gz
+~/Research/genomics_general/VCF_processing/parseVCF.py -i $vcf --addRefTrack | bgzip > /scratch/smartin/$out && rsync -av /scratch/smartin/$out . && rm -f /scratch/smartin/$out
+
+
+########################################
+# MB18102MAT as reference
+########################################
+
+ls $PWD/*MB18102MAT*rmdup.bam | grep -f chry10.list > chry10.MB18102MAT.bam.list
+
+prefix=chry10.BT.MB18102MAT.DP8GQ20.chr15
+bamlist=../Danaus_mapping/chry10.MB18102MAT.bam.list
+assembly=../Danaus_genome/MB181_trio/KKIM_assemblies/v8/polished/MB18102_MAT.hardmasked.fasta
+vcf=$prefix.vcf.gz
+regions="tig00001608,tig00001591,tig00001592"
+bcftools mpileup --skip-indels -r $regions -f $assembly --annotate FORMAT/DP --bam $bamlist | bcftools call -m -f GQ -O u | bcftools filter -e 'FORMAT/DP < 8 | FORMAT/GQ < 20' --set-GTs . | bcftools filter -e 'AN < 4' |  bgzip > /scratch/smartin/$vcf && rsync -av /scratch/smartin/$vcf . && rm /scratch/smartin/$vcf
+
+# parse vcf (incude REF track to be included in popgen analyses)
+
+out=$prefix.geno.gz
+~/Research/genomics_general/VCF_processing/parseVCF.py -i $vcf --addRefTrack | bgzip > /scratch/smartin/$out && rsync -av /scratch/smartin/$out . && rm -f /scratch/smartin/$out

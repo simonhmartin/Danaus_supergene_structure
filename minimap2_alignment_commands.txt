@@ -1,0 +1,69 @@
+####################################################################
+### Alignment of each D. chrysippus assembly to D. plexippus DplexMEX
+####################################################################
+
+#reference=DplexMEX, Query=Dchry2.2
+minimap2 -x asm20 dplex_mex.fa Dchry2.2.fa | gzip > DplexMex_Dchry2.2_minimap2.asm20.paf.gz
+
+#reference=DplexMEX, Query=SB211MAT
+minimap2 -x asm20 dplex_mex.fa SB211_MAT.fasta | gzip > DplexMex_SB211MAT.mm2asm20.paf.gz"
+
+#reference=DplexMEX, Query=SB211PAT
+minimap2 -x asm20 dplex_mex.fa SB211_PAT.fasta | gzip > DplexMex_SB211PAT.mm2asm20.paf.gz"
+
+#reference=DplexMEX, Query=MB18102MAT
+minimap2 -x asm20 dplex_mex.fa MB18102_MAT.fasta | gzip > DplexMex_MB18102MAT.mm2asm20.paf.gz
+
+#reference=DplexMEX, Query=MB18102PAT
+minimap2 -x asm20 dplex_mex.fa MB18102_PAT.fasta | gzip > DplexMex_MB18102PAT.mm2asm20.paf.gz
+
+####################################################################
+### Alignment of each D. chrysippus assembly to D. plexippus Dplex4
+####################################################################
+### This was done to indetify inversion breakpoints for phylogenetic analyses
+
+#reference=Dplex4, Query=SB211_PAT
+minimap2 -x asm20 Dapl_Zhan_v3_HiC.chroms.fasta SB211_PAT.fasta | gzip > Dplex4_SB211PAT.mm2asm20.paf.gz
+
+#reference=Dplex4, Query=MB18102MAT
+minimap2 -x asm20 Dapl_Zhan_v3_HiC.chroms.fasta MB18102_MAT.fasta | gzip > Dplex4_MB18102MAT.mm2asm20.paf.gz
+
+#reference=Dplex4, Query=MB18102PAT
+minimap2 -x asm20 Dapl_Zhan_v3_HiC.chroms.fasta MB18102_PAT.fasta | gzip > Dplex4_MB18102PAT.mm2asm20.paf.gz
+
+####################################################################
+### Alignment of D. chrysippus assemblies to each other
+####################################################################
+
+#reference=MB18102PAT, query=MB18102MAT
+minimap2 -x asm10 MB18102_PAT.fasta MB18102_MAT.fasta | gzip > MB18102PAT_MB18102MAT_minimap2.asm10.paf.gz
+
+#reference=SB211PAT, query=MB18102PAT
+minimap2 -x asm10 SB211_PAT.fasta MB18102_PAT.fasta | gzip > SB211PAT_MB18102PAT_minimap2.asm10.paf.gz
+
+#reference=Dchry2.2, query=MB18102MAT
+minimap2 -x asm10 Dchry2.2.fa MB18102_MAT.fasta > Dchry2.2_MB18102MAT_mm2asm10.paf.gz
+
+#reference=Dchry2.2, query=MB18102PAT
+minimap2 -x asm10 Dchry2.2.fa MB18102_PAT.fasta > Dchry2.2_MB18102PAT_mm2asm10.paf.gz
+
+#reference=MB18102MAT, query=SB211PAT
+minimap2 -x asm10 MB18102_MAT.fasta SB211_PAT.fasta | gzip > MB18102MAT_SB211PAT.mm2asm10.paf.gz
+
+#reference=Dchry2.2, query=SB211MAT
+minimap2 -x asm10 Dchry2.2.fa SB211_MAT.fasta | gzip > Dchry2.2_SB211MAT_minimap2.asm10.paf.gz
+
+#reference=Dchry2.2, query=SB211PAT
+minimap2 -x asm10 Dchry2.2.fa SB211_PAT.fasta | gzip > Dchry2.2_SB211PAT_minimap2.asm10.paf.gz
+
+#reference=SB211PAT (final hifiasm version), query=SB211PAT (alternative canu version)
+minimap2 -x asm10 SB211_PAT.fasta SB211_PAT.canu.fasta | gzip > SB211PAT_hifiasm_vs_canu.mm2asm10.paf.gz
+
+#reference=SB211PAT (alternative hifiasm version), query=SB211PAT (final canu version)
+minimap2 -x asm10 SB211_MAT.hifiasm.fasta SB211_MAT.fasta | gzip > SB211MAT_hifiasm_vs_canu.mm2asm10.paf.gz
+
+#Reference=SB211PAT, query=Dchry2.2
+minimap2 -x asm10 SB211_PAT.fasta Dchry2.2.fa | gzip > SB211PAT_Dchry2.2_mm2asm10.paf.gz
+
+reference=MB18102MAT, query=Dchry2HAP
+minimap2 -x asm10 Dchry2.haplotigs.fasta MB18102_MAT.fasta > Dchry2HAP_MB18102MAT_mm2asm10.paf.gz

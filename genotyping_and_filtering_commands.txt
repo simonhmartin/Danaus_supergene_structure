@@ -14,7 +14,7 @@ bcftools mpileup --skip-indels -r $regions -f $assembly --annotate FORMAT/DP --b
 # parse vcf (incude REF track to be included in popgen analyses)
 
 out=$prefix.geno.gz
-~/Research/genomics_general/VCF_processing/parseVCF.py -i $vcf --addRefTrack | bgzip > /scratch/smartin/$out && rsync -av /scratch/smartin/$out . && rm -f /scratch/smartin/$out
+genomics_general/VCF_processing/parseVCF.py -i $vcf --addRefTrack | bgzip > /scratch/smartin/$out
 
 ########################################
 ### Dchry2HAP (haplotigs) as reference
@@ -32,7 +32,7 @@ bcftools mpileup --skip-indels -r $regions -f $assembly --annotate FORMAT/DP --b
 # parse vcf (incude REF track to be included in popgen analyses)
 
 out=$prefix.geno.gz
-~/Research/genomics_general/VCF_processing/parseVCF.py -i $vcf --addRefTrack | bgzip > /scratch/smartin/$out && rsync -av /scratch/smartin/$out . && rm -f /scratch/smartin/$out
+genomics_general/VCF_processing/parseVCF.py -i $vcf --addRefTrack | bgzip > /scratch/smartin/$out
 
 
 ########################################
@@ -51,7 +51,7 @@ qsub -w e -N bcft -pe smp 4 -V ~/scripts/pipe2qsub "bcftools mpileup --skip-inde
 # parse vcf (incude REF track to be included in popgen analyses)
 
 out=$prefix.geno.gz
-~/Research/genomics_general/VCF_processing/parseVCF.py -i $vcf --addRefTrack | bgzip > /scratch/smartin/$out && rsync -av /scratch/smartin/$out . && rm -f /scratch/smartin/$out"
+genomics_general/VCF_processing/parseVCF.py -i $vcf --addRefTrack | bgzip > /scratch/smartin/$out"
 
 
 ########################################
@@ -70,7 +70,7 @@ bcftools mpileup --skip-indels -r $regions -f $assembly --annotate FORMAT/DP --b
 # parse vcf (incude REF track to be included in popgen analyses)
 
 out=$prefix.geno.gz
-~/Research/genomics_general/VCF_processing/parseVCF.py -i $vcf --addRefTrack | bgzip > /scratch/smartin/$out && rsync -av /scratch/smartin/$out . && rm -f /scratch/smartin/$out
+genomics_general/VCF_processing/parseVCF.py -i $vcf --addRefTrack | bgzip > /scratch/smartin/$out
 
 
 ########################################
@@ -89,7 +89,7 @@ bcftools mpileup --skip-indels -r $regions -f $assembly --annotate FORMAT/DP --b
 # parse vcf (incude REF track to be included in popgen analyses)
 
 out=$prefix.geno.gz
-~/Research/genomics_general/VCF_processing/parseVCF.py -i $vcf --addRefTrack | bgzip > /scratch/smartin/$out && rsync -av /scratch/smartin/$out . && rm -f /scratch/smartin/$out
+genomics_general/VCF_processing/parseVCF.py -i $vcf --addRefTrack | bgzip > /scratch/smartin/$out
 
 
 ########################################
@@ -108,4 +108,71 @@ bcftools mpileup --skip-indels -r $regions -f $assembly --annotate FORMAT/DP --b
 # parse vcf (incude REF track to be included in popgen analyses)
 
 out=$prefix.geno.gz
-~/Research/genomics_general/VCF_processing/parseVCF.py -i $vcf --addRefTrack | bgzip > /scratch/smartin/$out && rsync -av /scratch/smartin/$out . && rm -f /scratch/smartin/$out
+genomics_general/VCF_processing/parseVCF.py -i $vcf --addRefTrack | bgzip > /scratch/smartin/$out
+
+
+########################################
+# Dplex4 as reference
+########################################
+
+#genotype
+
+vcf=dan17.BT.DP5GQ20.CDS.vcf.gz
+bcftools mpileup --skip-indels -R ../Danaus_genome/Dplex_V4_HiC/Dplex4.exon.reduced.intervals -f ../Danaus_genome/Dplex_V4_HiC/Dapl_Zhan_v3_HiC.RN.fasta --annotate FORMAT/DP,FORMAT/AD --bam ../Danaus_mapping/dan17.bam.list | bcftools call -m -f GQ -O u | bcftools filter -e 'FORMAT/DP < 5 | FORMAT/GQ < 20' --set-GTs . | bcftools filter -e 'AN < 2' |  bgzip > /scratch/smartin/$vcf && rsync -av /scratch/smartin/$vcf . && rm /scratch/smartin/$vcf
+
+tabix -p vcf dan17.BT.DP5GQ20.CDS.vcf.gz
+
+#parse vcf to make geno file
+
+prefix=dan17.BT.DP5GQ20.CDS
+python genomics_general/VCF_processing/parseVCF.py -i $prefix.vcf.gz | bgzip > /scratch/smartin/$prefix.geno.gz && rsync -av /scratch/smartin/$prefix.geno.gz . && rm /scratch/smartin/$prefix.geno.gz
+
+
+# Filter for zero missing data (for this analysis we only want sites that can be reliably genotyped across all species)
+
+python genomics_general/filterGenotypes.py --threads 9 --minCalls 17 -i dan17.BT.DP5GQ20.CDS.geno.gz -of diplo --podSize 10000 | bgzip > dan17.BT.DP5GQ20.CDS.nomis.diplo.gz
+
+# extract gene alignments
+# using gff made by rishi from original published Dplex V4 gtf file.
+# exclude Z and chromosomes showing high divergence in the 2020 paper:
+#	chr4 = chr11 in Dplex4
+#	chr7 = chr15 in Dplex4
+#	chr15 = chr7 in Dplex4
+#	chr17 = chr16 in Dplex4
+#	chr22 = chr20 in Dplex4
+#	chr30 = chr28 in Dplex4
+
+tabix -p vcf dan17.BT.DP5GQ20.CDS.nomis.diplo.gz
+
+python genomics_general/extractCDSAlignments.py -g dan17.BT.DP5GQ20.CDS.nomis.diplo.gz --ploidy 1 --outFormat fasta --exclude chr1 chr11 chr15 chr7 chr16 chr20 chr28 -o dan17.BT.DP5GQ20.CDS.nomis.excl_div_chroms.diplo.fasta.gz --gff ../Danaus_genome/Dplex_V4_HiC/Dplex.tidy.gff3
+
+# extract gene alignments for inversions
+
+#chrysippus inversion (region 1.2)
+python genomics_general/extractCDSAlignments.py -g dan17.BT.DP5GQ20.CDS.nomis.diplo.gz --ploidy 1 --outFormat fasta -o dan17.BT.DP5GQ20.CDS.nomis.chrysippus_inv.diplo.fasta.gz --gff ../Danaus_genome/Dplex_V4_HiC/Dplex.tidy.gff3 -r chr7:5132104-5936786
+
+#orientis inversion1 excl chrysippus inversion (region 1.1)
+python genomics_general/extractCDSAlignments.py -g dan17.BT.DP5GQ20.CDS.nomis.diplo.gz --ploidy 1 --outFormat fasta -o dan17.BT.DP5GQ20.CDS.nomis.orientis_inv1_excl_chrysippus_inv.diplo.fasta.gz --gff ../Danaus_genome/Dplex_V4_HiC/Dplex.tidy.gff3 -r chr7:3909220-5132104
+
+#orientis inversion2 (region 2)
+python genomics_general/extractCDSAlignments.py -g dan17.BT.DP5GQ20.CDS.nomis.diplo.gz --ploidy 1 --outFormat fasta -o dan17.BT.DP5GQ20.CDS.nomis.orientis_inv2.diplo.fasta.gz --gff ../Danaus_genome/Dplex_V4_HiC/Dplex.tidy.gff3 -r chr7:5967890-7513824
+
+#orientis inversion3 (region 4)
+python genomics_general/extractCDSAlignments.py -g dan17.BT.DP5GQ20.CDS.nomis.diplo.gz --ploidy 1 --outFormat fasta -o dan17.BT.DP5GQ20.CDS.nomis.orientis_inv3.diplo.fasta.gz --gff ../Danaus_genome/Dplex_V4_HiC/Dplex.tidy.gff3 -r chr7:8805142-9252775
+
+
+### identify site types (necessary for getting to four-fold degenerate sites
+# here we have to use the version of the assembly ordered by chromosomes, because the genotyping of coding intervals caused reordering by chromosome (because the gtf is ordered by chromosome)
+
+out=dan17.BT.DP5GQ20.coding_site_types.tsv.gz
+python genomics_general/codingSiteTypes.py -a ../Danaus_genome/Dplex_V4_HiC/Zhan_v3_HiC.deeptools.recoded.gtf.gz -f gtf -r ../Danaus_genome/Dplex_V4_HiC/Dapl_Zhan_v3_HiC.chroms.fasta -v dan17.BT.DP5GQ20.CDS.vcf.gz --ignoreConflicts | bgzip > /scratch/smartin/$out
+
+#retain only 4D sites
+zcat dan17.BT.DP5GQ20.coding_site_types.tsv.gz | awk '(NR==1 || $5=="4") {print}' | bgzip > dan17.BT.DP5GQ20.4Dsites.tsv.gz
+
+# filter for 4D sites only
+in1=dan17.BT.DP5GQ20.CDS.geno.gz
+in2=dan17.BT.DP5GQ20.4Dsites.tsv.gz
+out=dan17.BT.DP5GQ20.4Dsites.geno.gz
+fai=../Danaus_genome/Dplex_V4_HiC/Dapl_Zhan_v3_HiC.chroms.fasta.fai
+python genomics_general/mergeGeno.py -i $in1 -i $in2 -f $fai --outputOnly 1 | bgzip > /scratch/smartin/$out

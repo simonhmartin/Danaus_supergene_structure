@@ -1,0 +1,19 @@
+
+#mapped to Dchry2.2
+genomics_general/popgenWindows.py --windType sites -w 25000 --minSites 10000 -g chry10.BT.Dchry2.2.DP8GQ20.chr15.geno.gz -o chry10.BT.Dchry2.2.DP8GQ20.chr15.divStats.w25ksitesMin10k.csv.gz -f phased -T 3 --analysis popDist popPairDist --writeFailedWindows --inferPloidy -p klugii SM15W61,SM15W66,SM15W72,SM15W74 -p chrysippus SM16N04,SM16N05,SM16N20,SM16N37 -p orientis SM16S06,SM17S01 -p REF REF
+
+#mapped to Dchry2HAP
+genomics_general/popgenWindows.py --windType sites -w 25000 --minSites 10000 -g chry10.BT.Dchry2HAP.DP8GQ20.chr15.geno.gz -o chry10.BT.Dchry2HAP.DP8GQ20.chr15.divStats.w25ksitesMin10k.csv.gz -f phased -T 3 --analysis popDist popPairDist --writeFailedWindows --inferPloidy -p klugii SM15W61,SM15W66,SM15W72,SM15W74 -p chrysippus SM16N04,SM16N05,SM16N20,SM16N37 -p orientis SM16S06,SM17S01 -p REF REF
+
+#mapped to SB211PAT
+genomics_general/popgenWindows.py --windType sites -w 25000 --minSites 10000 -g chry10.BT.SB211PAT.DP8GQ20.chr15.geno.gz -o chry10.BT.SB211PAT.DP8GQ20.chr15.divStats.w25ksitesMin10k.csv.gz -f phased -T 3 --analysis popDist popPairDist --writeFailedWindows --inferPloidy -p klugii SM15W61,SM15W66,SM15W72,SM15W74 -p chrysippus SM16N04,SM16N05,SM16N20,SM16N37 -p orientis SM16S06,SM17S01 -p REF REF
+
+#mapped to SB211MAT
+genomics_general/popgenWindows.py --windType sites -w 25000 --minSites 10000 -g chry10.BT.SB211MAT.DP8GQ20.chr15.geno.gz -o chry10.BT.SB211MAT.DP8GQ20.chr15.divStats.w25ksitesMin10k.csv.gz -f phased -T 3 --analysis popDist popPairDist --writeFailedWindows --inferPloidy -p klugii SM15W61,SM15W66,SM15W72,SM15W74 -p chrysippus SM16N04,SM16N05,SM16N20,SM16N37 -p orientis SM16S06,SM17S01 -p REF REF
+
+#mapped to MB18102PAT
+genomics_general/popgenWindows.py --windType sites -w 25000 --minSites 10000 -g chry10.BT.MB18102PAT.DP8GQ20.chr15.geno.gz -o chry10.BT.MB18102PAT.DP8GQ20.chr15.divStats.w25ksitesMin10k.csv.gz -f phased -T 3 --analysis popDist popPairDist --writeFailedWindows --inferPloidy -p klugii SM15W61,SM15W66,SM15W72,SM15W74 -p chrysippus SM16N04,SM16N05,SM16N20,SM16N37 -p orientis SM16S06,SM17S01 -p REF REF
+
+#mapped to MB18102MAT
+genomics_general/popgenWindows.py --windType sites -w 25000 --minSites 10000 -g chry10.BT.MB18102MAT.DP8GQ20.chr15.geno.gz -o chry10.BT.MB18102MAT.DP8GQ20.chr15.divStats.w25ksitesMin10k.csv.gz -f phased -T 3 --analysis popDist popPairDist --writeFailedWindows --inferPloidy -p klugii SM15W61,SM15W66,SM15W72,SM15W74 -p chrysippus SM16N04,SM16N05,SM16N20,SM16N37 -p orientis SM16S06,SM17S01 -p REF REF
+ 

@@ -1,0 +1,88 @@
+
+########################################
+### Dchry2.2 as reference
+########################################
+
+bamlist=chry10.Dchry2.2.bam.list
+out=chry10.BT.Dchry2.2.DPstats.w50.csv.gz
+regions=contig15.1
+
+names=$(sed -e "s/\// /g" -e "s/\./ /" $bamlist | cut -d ' ' -f 7 | tr '\n' ' ')
+
+(samtools depth -aa -r $regions -f $bamlist) | genomics_general/windowStats.py -w 50000 --headers CHROM POS $names | gzip > depth/$out"
+
+
+########################################
+### Dchry2HAP (haplotigs) as reference
+########################################
+
+bamlist=chry10.Dchry2HAP.bam.list
+out=chry10.BT.Dchry2HAP.DPstats.w50.csv.gz
+regions=000397F
+
+names=$(sed -e "s/\// /g" -e "s/\./ /" $bamlist | cut -d ' ' -f 7 | tr '\n' ' ')
+
+(samtools depth -aa -r $regions -f $bamlist) | genomics_general/windowStats.py -w 50000 --headers CHROM POS $names | gzip > depth/$out"
+
+########################################
+### SB211PAT as reference
+########################################
+
+bamlist=chry10.SB211PAT.bam.list
+out=chry10.BT.SB211PAT.DPstats.w50.csv.gz
+regions="h1tg000170l h1tg000359l h1tg000112l h1tg000044l"
+
+names=$(sed -e "s/\// /g" -e "s/\./ /" $bamlist | cut -d ' ' -f 7 | tr '\n' ' ')
+
+for r in $regions
+do
+echo $r
+samtools depth -aa -r $r -f $bamlist | genomics_general/windowStats.py -w 50000 --headers CHROM POS $names | gzip >> depth/$out
+done
+
+
+########################################
+### SB211MAT as reference
+########################################
+
+bamlist=chry10.SB211MAT.bam.list
+out=chry10.BT.SB211MAT.DPstats.w50.csv.gz
+regions="tig00000001 tig00000185"
+
+names=$(sed -e "s/\// /g" -e "s/\./ /" $bamlist | cut -d ' ' -f 7 | tr '\n' ' ')
+
+for r in $regions
+do
+echo $r
+samtools depth -aa -r $r -f $bamlist | genomics_general/windowStats.py -w 50000 --headers CHROM POS $names | gzip >> depth/$out
+done
+
+
+########################################
+### MB18102PAT as reference
+########################################
+
+bamlist=chry10.MB18102PAT.bam.list
+out=chry10.BT.MB18102PAT.DPstats.w50.csv.gz
+regions=tig00000001
+
+names=$(sed -e "s/\// /g" -e "s/\./ /" $bamlist | cut -d ' ' -f 7 | tr '\n' ' ')
+
+(samtools depth -aa -r $regions -f $bamlist) | genomics_general/windowStats.py -w 50000 --headers CHROM POS $names | gzip > depth/$out
+
+########################################
+# MB18102MAT as reference
+########################################
+
+bamlist=chry10.MB18102MAT.bam.list
+out=chry10.BT.MB18102MAT.DPstats.w50.csv.gz
+regions="tig00001608 tig00001591 tig00001592"
+
+names=$(sed -e "s/\// /g" -e "s/\./ /" $bamlist | cut -d ' ' -f 7 | tr '\n' ' ')
+
+for r in $regions
+do
+echo $r
+samtools depth -aa -r $r -f $bamlist | genomics_general/windowStats.py -w 50000 --headers CHROM POS $names | gzip >> depth/$out
+done
+ 
